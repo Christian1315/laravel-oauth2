@@ -86,7 +86,6 @@ jobs:
       - name: 🗄️ Run migrations
         env:
           DB_CONNECTION: mysql
-          DB_HOST: ${{ secrets.SERVER_HOST }}
           DB_DATABASE: ${{secrets.DB_NAME}}
           DB_USERNAME: ${{secrets.DB_USER_NAME}}
           DB_PASSWORD: ${{secrets.DB_USER_PASSWORD}}
@@ -95,9 +94,9 @@ jobs:
       - name: 🚀 Deploy via SSH
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
-          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          REMOTE_HOST: ${{secrets.SERVER_HOST}}
+          REMOTE_USER: ${{secrets.SERVER_USER}}
           SOURCE: "."
           TARGET: "/home/c2012706c/public_html/laravel_oauth2"
 
