@@ -86,8 +86,9 @@ jobs:
       - name: 🗄️ Run migrations
         env:
           DB_CONNECTION: mysql
+          DB_HOST: ${{ secrets.SERVER_HOST }}
           DB_DATABASE: ${{secrets.DB_NAME}}
-          DB_USERNAME: ${{secrets.DB_NAME}}
+          DB_USERNAME: ${{secrets.DB_USER_NAME}}
           DB_PASSWORD: ${{secrets.DB_USER_PASSWORD}}
         run: php artisan migrate --force
 
